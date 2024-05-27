@@ -1,0 +1,31 @@
+﻿@page "{id:int}"
+@model TareasPendientes.Pages.Tareas.EditModel
+@{
+    ViewData["Title"] = "Editar Tarea";
+}
+
+<h1>Editar Tarea</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Tarea.ID" />
+    <div class="form-group">
+        <label asp-for="Tarea.Titulo" class="control-label"></label>
+        <input asp-for="Tarea.Titulo" class="form-control" />
+        <span asp-validation-for="Tarea.Titulo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tarea.Descripcion" class="control-label"></label>
+        <input asp-for="Tarea.Descripcion" class="form-control" />
+        <span asp-validation-for="Tarea.Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tarea.FechaVencimiento" class="control-label"></label>
+        <input asp-for="Tarea.FechaVencimiento" class="form-control" />
+        <span asp-validation-for="Tarea.FechaVencimiento" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check">
+        <input asp-for="Tarea.Completada" class="form-check-input" />
+        <label asp-for="Tarea.Completada" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

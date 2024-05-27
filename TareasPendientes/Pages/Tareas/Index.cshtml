@@ -1,0 +1,40 @@
+﻿@page
+@model TareasPendientes.Pages.Tareas.IndexModel
+@{
+    ViewData["Title"] = "Lista de Tareas";
+}
+
+<h1>Lista de Tareas</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Crear Nueva Tarea</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Fecha Creacion</th>
+            <th>Fecha Vencimiento</th>
+            <th>Completada</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tareas)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Descripcion</td>
+                <td>@item.FechaCreacion.ToString("d")</td>
+                <td>@item.FechaVencimiento.ToString("d")</td>
+                <td>@(item.Completada ? "Sí" : "No")</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-warning">Editar</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
